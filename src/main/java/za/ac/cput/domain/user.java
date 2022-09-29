@@ -99,27 +99,27 @@ public class user implements Serializable {
         private String userType;
 
 
-        public Builder setemailAddress(String emailAddress) {
+        public Builder emailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
             return this;
         }
 
-        public Builder setPassword(String Password) {
+        public Builder Password(String Password) {
             this.Password = Password;
             return this;
         }
 
-        public Builder setpasswordConfirmation(String passwordConfirmation) {
+        public Builder passwordConfirmation(String passwordConfirmation) {
             this.passwordConfirmation = passwordConfirmation;
             return this;
         }
 
-        public Builder setgrade(int grade) {
+        public Builder grade(int grade) {
             this.grade = grade;
             return this;
         }
 
-        public Builder setuserType(String userType) {
+        public Builder userType(String userType) {
             this.userType = userType;
             return this;
         }
