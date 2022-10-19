@@ -1,4 +1,9 @@
 package za.ac.cput.repository;
 
-public interface IRegisterRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import za.ac.cput.domain.Register;
+
+@Repository
+public interface IRegisterRepository extends JpaRepository<Register, String> {
 }
