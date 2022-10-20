@@ -24,7 +24,7 @@ class userServiceTest {
     @Order(1)
     void save()
     {
-        user1 = userFactory.createUser("devtesters@gmail.com", "Password", "passwordConfirmation", 5, "student");
+        user1 = userFactory.createUser("devtesters@gmail.com", "Password", "password", 5, "student");
         user createUser1 = userService.save(user1);
         assertNotNull(createUser1);
         System.out.println(createUser1);
@@ -60,10 +60,4 @@ class userServiceTest {
         System.out.println(userService.getAll());
     }
 
-    @Test
-    @Order(5)
-    void findByEmailAddress()
-    {
-        System.out.println(userService.findByEmailAddress("devtesters@gmail.com"));
-    }
 }

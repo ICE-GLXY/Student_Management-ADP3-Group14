@@ -1,5 +1,10 @@
 package za.ac.cput.service.Impl;
-
+/*
+ * Mogamad Taariq Phillips - 220166153
+ * userService.java
+ * Creation of service class for user
+ *
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.user;
@@ -27,6 +32,11 @@ public class userService implements IUserService {
     @Override
     public Optional<user> read(String emailAddress) {
         return this.repository.findById(emailAddress);
+    }
+
+    @Override
+    public user update(user user) {
+        return this.repository.save(user);
     }
 
     @Override

@@ -1,5 +1,10 @@
 package za.ac.cput.factory;
-
+/*
+ * Mogamad Taariq Phillips - 220166153
+ * verificationFactory.java
+ * Creation of factory for verification
+ *
+ */
 import za.ac.cput.domain.verification;
 import za.ac.cput.util.Helper;
 

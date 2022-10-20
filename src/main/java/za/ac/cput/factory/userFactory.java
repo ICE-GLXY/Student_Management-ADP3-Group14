@@ -1,5 +1,10 @@
 package za.ac.cput.factory;
-
+/*
+ * Mogamad Taariq Phillips - 220166153
+ * userFactory.java
+ * Creation of factory for user
+ *
+ */
 import za.ac.cput.domain.user;
 import za.ac.cput.util.Helper;
 

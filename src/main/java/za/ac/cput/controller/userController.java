@@ -1,5 +1,10 @@
 package za.ac.cput.controller;
-
+/*
+ * Mogamad Taariq Phillips - 220166153
+ * userController.java
+ * Creation of controller for user
+ *
+ */
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("Student_Management-ADP3-Group14/user/")
+@RequestMapping("Student_Management-ADP3-Group14/user")
 @Slf4j
 public class userController {
 
@@ -38,6 +43,19 @@ public class userController {
         }
     }
 
+    //should update exist ??
+    @PutMapping("update_user")
+    public ResponseEntity<user> update(@Valid @RequestBody user updateUser){
+        try{
+            user updatedUser = this.repository.update(updateUser);
+            return ResponseEntity.ok(updatedUser);
+
+        }catch (IllegalArgumentException exception){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage());
+        }
+    }
+
+    //Read does not work
     @GetMapping("readUser/{userEmailAddress}")
     public ResponseEntity<Optional<user>> read(@PathVariable String emailAddress){
         log.info("Read request: {}",emailAddress);
@@ -65,17 +83,5 @@ public class userController {
         List<user> list = this.repository.getAll();
         return ResponseEntity.ok(list);
     }
-//    @GetMapping("findByEmailAddress/{userEmail}")
-//    public ResponseEntity<Optional<user>> findByEmailAddress(@RequestParam String emailAddress) {
-//        log.info("findByEmailAddress request: {}", emailAddress);
-//
-//        try {
-//            user findByEmailAddress = repository.findByEmailAddress(emailAddress);
-//            return ResponseEntity.ok(findByEmailAddress);
-//
-//        }catch(IllegalArgumentException e){
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-//        }
-//    }
 
 }
