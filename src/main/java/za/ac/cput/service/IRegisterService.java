@@ -1,6 +1,10 @@
+/*
+ * Moegammad Tasreeq Adams
+ * Student NUmber:216173027
+ */
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Login;
+
 import za.ac.cput.domain.Register;
 
 import java.util.List;

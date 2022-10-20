@@ -3,6 +3,11 @@ package za.ac.cput.domain;
 
 import com.sun.istack.NotNull;
 
+/*
+ * Moegammad Tasreeq Adams
+ * Student NUmber:216173027
+ */
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;

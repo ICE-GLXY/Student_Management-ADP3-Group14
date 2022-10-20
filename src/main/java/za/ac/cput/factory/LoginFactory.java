@@ -1,5 +1,8 @@
 package za.ac.cput.factory;
-
+/*
+ * Moegammad Tasreeq Adams
+ * Student NUmber:216173027
+ */
 import org.hibernate.boot.model.source.internal.hbm.Helper;
 import za.ac.cput.domain.Login;
 

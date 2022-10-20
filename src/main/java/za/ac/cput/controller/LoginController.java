@@ -1,3 +1,7 @@
+/*
+ * Moegammad Tasreeq Adams
+ * Student NUmber:216173027
+ */
 package za.ac.cput.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -7,12 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import za.ac.cput.domain.Login;
-import za.ac.cput.domain.Parent;
 import za.ac.cput.factory.LoginFactory;
 import za.ac.cput.service.ILoginService;
 
 import javax.validation.Valid;
-import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -23,19 +25,17 @@ public class LoginController {
     private final ILoginService service;
 
     @Autowired
-    public LoginController(ILoginService service){this.service = service;}
+    public LoginController(ILoginService service) {
+        this.service = service;
+    }
 
     @PostMapping("save")
-    public ResponseEntity<Login> safe(@Valid @RequestBody Login login)
-    {
+    public ResponseEntity<Login> safe(@Valid @RequestBody Login login) {
         log.info("Save request:{}", login);
         Login newLogin;
-        try
-        {
-            newLogin = LoginFactory.createLogin(login.getLoginID(),login.getEmail(),login.getPassword());
-        }
-        catch(IllegalArgumentException iae)
-        {
+        try {
+            newLogin = LoginFactory.createLogin(login.getLoginID(), login.getEmail(), login.getPassword());
+        } catch (IllegalArgumentException iae) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         Login save = service.save(newLogin);
@@ -43,8 +43,7 @@ public class LoginController {
     }
 
     @GetMapping("read/{id}")
-    public ResponseEntity<Login> read(@PathVariable String id)
-    {
+    public ResponseEntity<Login> read(@PathVariable String id) {
         log.info("Read request:{}", id);
         Login login = this.service.read(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
@@ -53,15 +52,14 @@ public class LoginController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id)
-    {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         log.info("Read request:{}", id);
         this.service.delete(id);
-        return  ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("readAllLogin")
-    public ResponseEntity<java.util.List<Login>> readAll(){
+    public ResponseEntity<java.util.List<Login>> readAll() {
         List<Login> list = this.service.findAll();
         return ResponseEntity.ok(list);
     }
