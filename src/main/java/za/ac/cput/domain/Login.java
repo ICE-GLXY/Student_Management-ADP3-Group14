@@ -1,11 +1,26 @@
 package za.ac.cput.domain;
 
-public class Login {
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Login implements Serializable {
+
+    @Id
+    @NotNull
     private String loginID;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
 
-    private Login(Builder builder){
+    protected Login() {
+    }
+
+    private Login(Builder builder) {
         this.loginID = builder.loginID;
         this.email = builder.email;
         this.password = builder.password;
@@ -33,7 +48,7 @@ public class Login {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private String loginID;
         private String email;
         private String password;
@@ -53,15 +68,16 @@ public class Login {
             return this;
         }
 
-        public Builder copy (Login login)
-        {
+        public Builder copy(Login login) {
             this.loginID = login.loginID;
             this.email = login.email;
             this.password = login.password;
             return this;
         }
 
-        public Login build(){return new Login(this);}
+        public Login build() {
+            return new Login(this);
+        }
     }
 
 }

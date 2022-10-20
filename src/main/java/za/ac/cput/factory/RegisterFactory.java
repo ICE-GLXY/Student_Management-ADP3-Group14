@@ -4,9 +4,9 @@ import za.ac.cput.domain.Register;
 import za.ac.cput.util.Helper;
 
 public class RegisterFactory {
-    public static Register createRegister(String registerNumber, String email, String password, String school, String parent, String student){
+    public static Register createRegister(String registerNumber, String email, String password, String school, String parent, String student) {
         String registerId = Helper.generateSmallerId();
-        if(registerNumber.isEmpty()){
+        if (registerNumber.isEmpty()) {
             return null;
         }
 

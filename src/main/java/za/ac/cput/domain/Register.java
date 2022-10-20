@@ -1,14 +1,32 @@
 package za.ac.cput.domain;
 
-public class Register {
+
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Register implements Serializable {
+    @Id
+    @NotNull
     private String registerNumber;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
+    @NotNull
     private String school;
+    @NotNull
     private String parent;
+    @NotNull
     private String student;
 
-    private Register(Builder builder){
+    public Register() {
+    }
+
+    private Register(Builder builder) {
         this.registerNumber = builder.registerNumber;
         this.email = builder.email;
         this.password = builder.password;
@@ -18,9 +36,13 @@ public class Register {
     }
 
     //getters
-    public String getRegisterNumber(){return registerNumber;}
+    public String getRegisterNumber() {
+        return registerNumber;
+    }
 
-    public String getEmail() {return email;}
+    public String getEmail() {
+        return email;
+    }
 
     public String getPassword() {
         return password;
@@ -50,7 +72,7 @@ public class Register {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private String registerNumber;
         private String email;
         private String password;
@@ -89,7 +111,7 @@ public class Register {
             return this;
         }
 
-        public Builder copy (Register register){
+        public Builder copy(Register register) {
             this.registerNumber = register.registerNumber;
             this.email = register.email;
             this.password = register.password;
@@ -98,7 +120,10 @@ public class Register {
             this.student = register.student;
             return this;
         }
-        public Register build(){return new Register(this);}
+
+        public Register build() {
+            return new Register(this);
+        }
     }
 
 }

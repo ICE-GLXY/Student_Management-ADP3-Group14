@@ -15,16 +15,19 @@ public class LoginServiceImpl implements ILoginService {
     private final ILoginRepository repository;
 
     @Autowired
-    public LoginServiceImpl(ILoginRepository repository)
-    {this.repository = repository;}
+    public LoginServiceImpl(ILoginRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
-    public Optional<Login> read(String id)
-    {return this.repository.findById(id);}
+    public Optional<Login> read(String id) {
+        return this.repository.findById(id);
+    }
 
     @Override
-    public Login save(Login login)
-    {return this.repository.save(login);}
+    public Login save(Login login) {
+        return this.repository.save(login);
+    }
 
     @Override
     public void delete(Login login) {
@@ -32,8 +35,9 @@ public class LoginServiceImpl implements ILoginService {
     }
 
     @Override
-    public void delete(String id)
-    {this.repository.deleteById(id);}
+    public void delete(String id) {
+        this.repository.deleteById(id);
+    }
 
 
     @Override
