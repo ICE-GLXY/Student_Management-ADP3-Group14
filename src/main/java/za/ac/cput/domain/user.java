@@ -9,20 +9,19 @@ package za.ac.cput.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
 public class user implements Serializable {
     @Id @Column(name = "emailAddress")
     private String emailAddress;
-    @NotNull
-    private String Password;
-    @NotNull
+
+    private String password;
+
     private String passwordConfirmation;
-    @NotNull
+
     private int grade;
-    @NotNull
+
     private String userType;
 
     protected user(){
@@ -32,7 +31,7 @@ public class user implements Serializable {
     //private builder constructor
     private user(Builder builder) {
         this.emailAddress = builder.emailAddress;
-        this.Password = builder.Password;
+        this.password = builder.password;
         this.passwordConfirmation = builder.passwordConfirmation;
         this.grade = builder.grade;
         this.userType = builder.userType;
@@ -47,11 +46,11 @@ public class user implements Serializable {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getPasswordConfirmation() {
@@ -84,7 +83,7 @@ public class user implements Serializable {
     public String toString() {
         return "user{" +
                 "emailAddress='" + emailAddress + '\'' +
-                ", Password='" + Password + '\'' +
+                ", Password='" + password + '\'' +
                 ", passwordConfirmation='" + passwordConfirmation + '\'' +
                 ", grade=" + grade +
                 ", userType='" + userType + '\'' +
@@ -93,40 +92,40 @@ public class user implements Serializable {
 
     public static class Builder {
         private String emailAddress;
-        private String Password;
+        private String password;
         private String passwordConfirmation;
         private int grade;
         private String userType;
 
 
-        public Builder setemailAddress(String emailAddress) {
+        public Builder emailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
             return this;
         }
 
-        public Builder setPassword(String Password) {
-            this.Password = Password;
+        public Builder Password(String Password) {
+            this.password = Password;
             return this;
         }
 
-        public Builder setpasswordConfirmation(String passwordConfirmation) {
+        public Builder passwordConfirmation(String passwordConfirmation) {
             this.passwordConfirmation = passwordConfirmation;
             return this;
         }
 
-        public Builder setgrade(int grade) {
+        public Builder grade(int grade) {
             this.grade = grade;
             return this;
         }
 
-        public Builder setuserType(String userType) {
+        public Builder userType(String userType) {
             this.userType = userType;
             return this;
         }
 
         public Builder copy(user d) {
             this.emailAddress = d.emailAddress;
-            this.Password = d.Password;
+            this.password = d.password;
             this.passwordConfirmation = d.passwordConfirmation;
             this.grade = d.grade;
             this.userType = d.userType;
