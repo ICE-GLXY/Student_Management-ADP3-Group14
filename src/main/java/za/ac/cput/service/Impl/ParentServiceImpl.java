@@ -1,6 +1,7 @@
 package za.ac.cput.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Parent;
 import za.ac.cput.repository.IParentRepository;
 import za.ac.cput.service.IParentService;
@@ -8,6 +9,7 @@ import za.ac.cput.service.IParentService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ParentServiceImpl implements IParentService {
 
     private final IParentRepository repository;
