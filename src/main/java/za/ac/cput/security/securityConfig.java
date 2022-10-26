@@ -68,8 +68,18 @@ public class securityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readAllSchool").hasRole("USER")
 
                 //Login_Authentication
+                .antMatchers(HttpMethod.POST, "/Student_Management-ADP3-Group14/login/save_login").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/login/read_login").hasRole("USER")
+                .antMatchers(HttpMethod.PUT, "/Student_Management-ADP3-Group14/login/update_Login").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/login/delete_login").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/login/readAllLogins").hasRole("USER")
 
                 //Register Authentication
+                .antMatchers(HttpMethod.POST, "/Student_Management-ADP3-Group14/register/save_register").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/Student_Management-ADP3-Group14/register/update_Register").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/register/read_register").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/register/delete_register").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/register/readAllRegisters").hasRole("USER")
 
                 .and()
                 .formLogin().disable()

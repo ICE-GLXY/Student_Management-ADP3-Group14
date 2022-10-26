@@ -24,26 +24,28 @@ public class registerServiceImpl implements IRegisterService {
     }
 
     @Override
-    public Optional<register> read(String registerNumber) {
-        return this.repository.findById(registerNumber);
-    }
-
-    @Override
     public register save(register register) {
         return this.repository.save(register);
     }
 
+    @Override
+    public Optional<register> read(String registerNumber) {
+        return this.repository.findById(registerNumber);
+    }
+
+    //update
+    @Override
+    public register update(register register) {
+        return this.repository.save(register);
+    }
 
     @Override
-    public void delete(register register) {
-
-    }
+    public void delete(register register) {this.repository.delete(register);}
 
     @Override
     public void delete(String registerNumber) {
         this.repository.deleteById(registerNumber);
     }
-
 
     @Override
     public List<register> findAll() {

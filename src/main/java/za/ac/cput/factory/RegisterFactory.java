@@ -10,13 +10,13 @@ import za.ac.cput.util.Helper;
 
 public class registerFactory {
     public static register createRegister(String registerNumber, String email, String password, String school, String parent, String student) {
-        String registerId = Helper.generateSmallerId();
+        //String registerId = Helper.generateSmallerId();
         if (registerNumber.isEmpty()) {
             return null;
         }
 
         register register = new register.Builder()
-                .setRegisterNumber(registerId)
+                .setRegisterNumber(registerNumber)
                 .setEmail(email)
                 .setPassword(password)
                 .setSchool(school)
