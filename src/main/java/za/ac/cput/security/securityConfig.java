@@ -67,6 +67,10 @@ public class securityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/school/deleteSchool/").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readAllSchool").hasRole("USER")
 
+                //Login_Authentication
+
+                //Register Authentication
+
                 .and()
                 .formLogin().disable()
                 .httpBasic();
