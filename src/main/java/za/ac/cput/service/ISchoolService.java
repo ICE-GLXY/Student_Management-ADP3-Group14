@@ -1,19 +1,16 @@
 package za.ac.cput.service;
+/*
+ * Abdul Aleem Chilwan - 220108447
+ * ADP3 - Final Capstone
+ * Service - ISchoolService.java
+ * October 2022
+ */
 
-import za.ac.cput.domain.Parent;
-import za.ac.cput.domain.School;
+import za.ac.cput.domain.school;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface ISchoolService {
-    Optional<School> read(String id);
-
-    School save(School school);
-
-    void delete(School school);
-
-    void delete(String Id);
-
-    List<School> findAll();
+public interface ISchoolService extends IService<school, String>{
+    public List<school> getAll();
+    
 }

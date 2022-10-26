@@ -1,4 +1,12 @@
 package za.ac.cput.security;
+/*
+*
+*
+ * Abdul Aleem Chilwan - 220108447 - Added security for Parent and School
+ * ADP3 - Final Capstone
+ * Security - SecurityConfig.java
+ * October 2022
+ */
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,6 +52,20 @@ public class securityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/user/readUser/").hasRole("USER")
                 .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/user/deleteUser/").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/user/readAllUsers").hasRole("USER")
+        
+                //Parent Authentication
+                .antMatchers(HttpMethod.POST, "/Student_Management-ADP3-Group14/parent/save_parent").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/Student_Management-ADP3-Group14/parent/update_parent").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/parent/readParent/").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/parent/deleteParent/").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/parent/readAllParent").hasRole("USER")
+        
+                //School Authentication
+                .antMatchers(HttpMethod.POST, "/Student_Management-ADP3-Group14/school/save_school").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/Student_Management-ADP3-Group14/school/update_school").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readSchool/").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/school/deleteSchool/").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readAllSchool").hasRole("USER")
 
                 .and()
                 .formLogin().disable()
