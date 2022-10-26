@@ -5,15 +5,14 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.Login;
-import za.ac.cput.domain.Register;
+import za.ac.cput.domain.register;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RegisterFactoryTest {
+class registerFactoryTest {
     @Test
     void createRegister() {
-        Register register = RegisterFactory.createRegister("01","@gmail",
+        register register = registerFactory.createRegister("01","@gmail",
                 "gmail","PPHS","Yes","no");
         assertNotNull(register);
         System.out.println(register);
@@ -22,7 +21,7 @@ class RegisterFactoryTest {
 
     @Test
     public void buildWithSuccess(){
-        Register register = RegisterFactory.createRegister("01","@gmail",
+        register register = registerFactory.createRegister("01","@gmail",
                 "gmail","PPHS","Yes","no");
         assertNotNull(register);
         System.out.println(register);
@@ -32,7 +31,7 @@ class RegisterFactoryTest {
     @Test
     public void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,
-                () -> RegisterFactory.createRegister(null,"@gmail",
+                () -> registerFactory.createRegister(null,"@gmail",
                         "gmail","PPHS","Yes","no"));
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("RegisterID"));

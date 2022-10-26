@@ -3,26 +3,28 @@ package za.ac.cput.factory;
  * Moegammad Tasreeq Adams
  * Student NUmber:216173027
  */
-import org.hibernate.boot.model.source.internal.hbm.Helper;
-import za.ac.cput.domain.Login;
+import za.ac.cput.domain.login;
+import za.ac.cput.util.Helper;
 
-public class LoginFactory {
-    public static Login createLogin(String loginID, String email, String password) {
+public class loginFactory {
+    public static login createLogin(String loginNumber, String email, String password) {
 
-        if (loginID.isEmpty()) {
+        if (loginNumber.isEmpty()) {
             return null;
         }
 
-        if (email == null) {
-            throw new IllegalArgumentException("email incorrect");
+        if (email == null || !Helper.isValidEmail(email)) {
+            //throw new IllegalArgumentException("email incorrect");
+            return null;
         }
 
         if (password == null) {
-            throw new IllegalArgumentException("password incorrect");
+            //throw new IllegalArgumentException("password incorrect");
+            return null;
         }
 
-            return new Login.Builder()
-                    .setLoginID(loginID)
+            return new login.Builder()
+                    .setloginNumber(loginNumber)
                     .setEmail(email)
                     .setPassword(password)
                     .build();
