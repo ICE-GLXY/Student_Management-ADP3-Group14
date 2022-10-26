@@ -27,6 +27,9 @@ public class StudentServiceImpl implements IStudentService {
     public Student save(Student student){return this.repository.save(student);}
 
     @Override
+    public Student update(Student student){return this.repository.save(student);}
+
+    @Override
     public Optional<Student> read(String s) {
         return Optional.empty();
     }

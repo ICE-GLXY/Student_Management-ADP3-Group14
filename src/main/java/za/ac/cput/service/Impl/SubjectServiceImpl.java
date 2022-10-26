@@ -32,6 +32,11 @@ public class SubjectServiceImpl implements ISubjectService {
     }
 
     @Override
+    public Subject update(Subject subject) {
+        return this.repository.save(subject);
+    }
+
+    @Override
     public Optional<Subject> read(String s) {
         return Optional.empty();
     }
