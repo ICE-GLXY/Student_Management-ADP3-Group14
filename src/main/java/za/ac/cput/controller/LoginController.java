@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.domain.Login;
-import za.ac.cput.factory.LoginFactory;
+import za.ac.cput.domain.login;
+import za.ac.cput.factory.loginFactory;
 import za.ac.cput.service.ILoginService;
 
 import javax.validation.Valid;
@@ -30,37 +30,37 @@ public class LoginController {
     }
 
     @PostMapping("save")
-    public ResponseEntity<Login> safe(@Valid @RequestBody Login login) {
+    public ResponseEntity<login> safe(@Valid @RequestBody login login) {
         log.info("Save request:{}", login);
-        Login newLogin;
+        za.ac.cput.domain.login newLogin;
         try {
-            newLogin = LoginFactory.createLogin(login.getLoginID(), login.getEmail(), login.getPassword());
+            newLogin = loginFactory.createLogin(login.getloginNumber(), login.getEmail(), login.getPassword());
         } catch (IllegalArgumentException iae) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        Login save = service.save(newLogin);
+        za.ac.cput.domain.login save = service.save(newLogin);
         return ResponseEntity.ok(save);
     }
 
-    @GetMapping("read/{id}")
-    public ResponseEntity<Login> read(@PathVariable String id) {
-        log.info("Read request:{}", id);
-        Login login = this.service.read(id).orElseThrow(
+    @GetMapping("read/{loginNumber}")
+    public ResponseEntity<login> read(@PathVariable String loginNumber) {
+        log.info("Read request:{}", loginNumber);
+        login login = this.service.read(loginNumber).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
         );
         return ResponseEntity.ok(login);
     }
 
-    @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        log.info("Read request:{}", id);
-        this.service.delete(id);
+    @DeleteMapping("delete/{loginNumber}")
+    public ResponseEntity<Void> delete(@PathVariable login loginNumber) {
+        log.info("Read request:{}", loginNumber);
+        this.service.delete(loginNumber);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("readAllLogin")
-    public ResponseEntity<java.util.List<Login>> readAll() {
-        List<Login> list = this.service.findAll();
+    public ResponseEntity<java.util.List<login>> readAll() {
+        List<login> list = this.service.findAll();
         return ResponseEntity.ok(list);
     }
 }
