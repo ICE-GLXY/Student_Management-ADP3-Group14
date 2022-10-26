@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Register implements Serializable {
+public class register implements Serializable {
     @Id
     @NotNull
     private String registerNumber;
@@ -28,10 +28,10 @@ public class Register implements Serializable {
     @NotNull
     private String student;
 
-    public Register() {
+    public register() {
     }
 
-    private Register(Builder builder) {
+    private register(Builder builder) {
         this.registerNumber = builder.registerNumber;
         this.email = builder.email;
         this.password = builder.password;
@@ -63,6 +63,31 @@ public class Register implements Serializable {
 
     public String getStudent() {
         return student;
+    }
+
+    //setters
+    public void setRegisterNumber(String registerNumber) {
+        this.registerNumber = registerNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
+
+    public void setStudent(String student) {
+        this.student = student;
     }
 
     @Override
@@ -116,7 +141,7 @@ public class Register implements Serializable {
             return this;
         }
 
-        public Builder copy(Register register) {
+        public Builder copy(register register) {
             this.registerNumber = register.registerNumber;
             this.email = register.email;
             this.password = register.password;
@@ -126,8 +151,8 @@ public class Register implements Serializable {
             return this;
         }
 
-        public Register build() {
-            return new Register(this);
+        public register build() {
+            return new register(this);
         }
     }
 

@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.domain.Register;
-import za.ac.cput.factory.RegisterFactory;
+import za.ac.cput.domain.register;
+import za.ac.cput.factory.registerFactory;
 import za.ac.cput.service.IRegisterService;
 
 import javax.validation.Valid;
@@ -20,34 +20,34 @@ import java.util.List;
 @RestController
 @RequestMapping("School_Management-ADP3-Group14/EmployeeAddress/")
 @Slf4j
-public class RegisterController {
+public class registerController {
 
     private final IRegisterService service;
     @Autowired
-    public RegisterController(IRegisterService service){this.service = service;}
+    public registerController(IRegisterService service){this.service = service;}
 
-    @PostMapping("save")
-    public ResponseEntity<Register> safe(@Valid @RequestBody Register register)
+    @PostMapping("save_register")
+    public ResponseEntity<register> safe(@Valid @RequestBody register register)
     {
         log.info("Save request:{}", register);
-        Register newRegister;
+        za.ac.cput.domain.register newRegister;
         try
         {
-            newRegister = RegisterFactory.createRegister(register.getRegisterNumber(),register.getEmail(),register.getPassword(),register.getSchool(),register.getParent(),register.getStudent());
+            newRegister = registerFactory.createRegister(register.getRegisterNumber(),register.getEmail(),register.getPassword(),register.getSchool(),register.getParent(),register.getStudent());
         }
         catch(IllegalArgumentException iae)
         {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        Register save = service.save(newRegister);
+        za.ac.cput.domain.register save = service.save(newRegister);
         return ResponseEntity.ok(save);
     }
 
     @GetMapping("read/{registerNumber}")
-    public ResponseEntity<Register> read(@PathVariable String registerNumber)
+    public ResponseEntity<register> read(@PathVariable String registerNumber)
     {
         log.info("Read request:{}", registerNumber);
-        Register register = this.service.read(registerNumber).orElseThrow(
+        register register = this.service.read(registerNumber).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND)
         );
         return ResponseEntity.ok(register);
@@ -62,8 +62,8 @@ public class RegisterController {
     }
 
     @GetMapping("readAllRegister")
-    public ResponseEntity<List<Register>> readAll(){
-        List<Register> list = this.service.findAll();
+    public ResponseEntity<List<register>> readAll(){
+        List<register> list = this.service.findAll();
         return ResponseEntity.ok(list);
     }
 

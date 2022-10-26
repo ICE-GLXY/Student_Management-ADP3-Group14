@@ -6,7 +6,7 @@ package za.ac.cput.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Register;
+import za.ac.cput.domain.register;
 import za.ac.cput.repository.IRegisterRepository;
 import za.ac.cput.service.IRegisterService;
 
@@ -14,28 +14,28 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RegisterServiceImpl implements IRegisterService {
+public class registerServiceImpl implements IRegisterService {
 
     private final IRegisterRepository repository;
 
     @Autowired
-    public RegisterServiceImpl(IRegisterRepository repository) {
+    public registerServiceImpl(IRegisterRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public Optional<Register> read(String registerNumber) {
+    public Optional<register> read(String registerNumber) {
         return this.repository.findById(registerNumber);
     }
 
     @Override
-    public Register save(Register register) {
+    public register save(register register) {
         return this.repository.save(register);
     }
 
 
     @Override
-    public void delete(Register register) {
+    public void delete(register register) {
 
     }
 
@@ -46,7 +46,7 @@ public class RegisterServiceImpl implements IRegisterService {
 
 
     @Override
-    public List<Register> findAll() {
+    public List<register> findAll() {
         return this.repository.findAll();
     }
 

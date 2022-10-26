@@ -6,7 +6,7 @@ package za.ac.cput.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Login;
+import za.ac.cput.domain.login;
 import za.ac.cput.repository.ILoginRepository;
 import za.ac.cput.service.ILoginService;
 
@@ -14,39 +14,43 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class LoginServiceImpl implements ILoginService {
+public class loginServiceImpl implements ILoginService {
 
     private final ILoginRepository repository;
 
     @Autowired
-    public LoginServiceImpl(ILoginRepository repository) {
+    public loginServiceImpl(ILoginRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public Optional<Login> read(String id) {
-        return this.repository.findById(id);
-    }
-
-    @Override
-    public Login save(Login login) {
+    public login save(login login) {
         return this.repository.save(login);
     }
 
     @Override
-    public void delete(Login login) {
+    public Optional<login> read(String loginNumber) {
+        return this.repository.findById(loginNumber);
+    }
 
+    //update?
+    @Override
+    public login update(login login) {
+        return this.repository.save(login);
     }
 
     @Override
-    public void delete(String id) {
-        this.repository.deleteById(id);
-    }
-
+    public void delete(login login) {this.repository.delete(login);}
 
     @Override
-    public List<Login> findAll() {
+    public List<login> findAll() {
         return this.repository.findAll();
+    }
+
+    public login deleteById(String loginNumber){
+        Optional <login> login = read(loginNumber);
+        if(login.isPresent())delete(login.get());
+        return null;
     }
 
 
