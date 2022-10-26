@@ -43,7 +43,7 @@ public class registerController {
         return ResponseEntity.ok(save);
     }
 
-    @GetMapping("read/{registerNumber}")
+    @GetMapping("read_register/{registerNumber}")
     public ResponseEntity<register> read(@PathVariable String registerNumber)
     {
         log.info("Read request:{}", registerNumber);
@@ -53,7 +53,7 @@ public class registerController {
         return ResponseEntity.ok(register);
     }
 
-    @DeleteMapping("delete/{registerNumber}")
+    @DeleteMapping("delete_register/{registerNumber}")
     public ResponseEntity<Void> delete(@PathVariable String registerNumber)
     {
         log.info("Read request:{}", registerNumber);
@@ -61,7 +61,7 @@ public class registerController {
         return  ResponseEntity.noContent().build();
     }
 
-    @GetMapping("readAllRegister")
+    @GetMapping("readAllRegisters")
     public ResponseEntity<List<register>> readAll(){
         List<register> list = this.service.findAll();
         return ResponseEntity.ok(list);

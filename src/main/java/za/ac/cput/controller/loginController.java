@@ -42,7 +42,7 @@ public class loginController {
         return ResponseEntity.ok(save);
     }
 
-    @GetMapping("read/{loginNumber}")
+    @GetMapping("read_login/{loginNumber}")
     public ResponseEntity<login> read(@PathVariable String loginNumber) {
         log.info("Read request:{}", loginNumber);
         login login = this.service.read(loginNumber).orElseThrow(
@@ -51,14 +51,14 @@ public class loginController {
         return ResponseEntity.ok(login);
     }
 
-    @DeleteMapping("delete/{loginNumber}")
+    @DeleteMapping("delete_login/{loginNumber}")
     public ResponseEntity<Void> delete(@PathVariable login loginNumber) {
         log.info("Read request:{}", loginNumber);
         this.service.delete(loginNumber);
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("readAllLogin")
+    @GetMapping("readAllLogins")
     public ResponseEntity<java.util.List<login>> readAll() {
         List<login> list = this.service.findAll();
         return ResponseEntity.ok(list);
