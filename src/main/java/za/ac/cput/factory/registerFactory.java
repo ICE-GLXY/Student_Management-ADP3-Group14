@@ -6,7 +6,6 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.register;
-import za.ac.cput.util.Helper;
 
 public class registerFactory {
     public static register createRegister(String registerNumber, String email, String password, String school, String parent, String student) {
