@@ -20,13 +20,13 @@ import java.util.List;
 @RestController
 @RequestMapping("School_Management-ADP3-Group14/EmployeeAddress/")
 @Slf4j
-public class RegisterController {
+public class registerController {
 
     private final IRegisterService service;
     @Autowired
-    public RegisterController(IRegisterService service){this.service = service;}
+    public registerController(IRegisterService service){this.service = service;}
 
-    @PostMapping("save")
+    @PostMapping("save_register")
     public ResponseEntity<register> safe(@Valid @RequestBody register register)
     {
         log.info("Save request:{}", register);

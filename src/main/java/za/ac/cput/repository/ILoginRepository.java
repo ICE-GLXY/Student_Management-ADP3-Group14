@@ -11,5 +11,5 @@ import za.ac.cput.domain.login;
 
 @Repository
 public interface ILoginRepository extends JpaRepository<login, String> {
-public login findByloginNumber(String loginNumber);
+
 }

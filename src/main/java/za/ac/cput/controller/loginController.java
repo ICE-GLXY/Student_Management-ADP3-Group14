@@ -21,15 +21,15 @@ import java.util.List;
 @RequestMapping("School_Management-ADP3-Group14/EmployeeAddress/")
 @Slf4j
 
-public class LoginController {
+public class loginController {
     private final ILoginService service;
 
     @Autowired
-    public LoginController(ILoginService service) {
+    public loginController(ILoginService service) {
         this.service = service;
     }
 
-    @PostMapping("save")
+    @PostMapping("save_login")
     public ResponseEntity<login> safe(@Valid @RequestBody login login) {
         log.info("Save request:{}", login);
         za.ac.cput.domain.login newLogin;

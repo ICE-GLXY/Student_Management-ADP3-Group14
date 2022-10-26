@@ -64,20 +64,7 @@ public class login implements Serializable {
                 '}';
     }
 
-    /////////////////////////////////////////////////////////
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        login login = (za.ac.cput.domain.login) o;
-//        return loginNumber.equals(login.loginNumber) && email.equals(login.email) && password.equals(login.password);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(loginNumber, email, password);
-//    }
- /////////////////////////////////////////////////////////
+
     public static class Builder {
         private String loginNumber;
         private String email;

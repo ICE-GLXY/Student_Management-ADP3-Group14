@@ -65,6 +65,31 @@ public class register implements Serializable {
         return student;
     }
 
+    //setters
+    public void setRegisterNumber(String registerNumber) {
+        this.registerNumber = registerNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
+
+    public void setStudent(String student) {
+        this.student = student;
+    }
+
     @Override
     public String toString() {
         return "Register{" +
