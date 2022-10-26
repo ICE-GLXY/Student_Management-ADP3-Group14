@@ -29,7 +29,7 @@ public class loginController {
     }
 
     @PostMapping("save_login")
-    public ResponseEntity<login> safe(@Valid @RequestBody login saveLogin) {
+    public ResponseEntity<login> save(@Valid @RequestBody login saveLogin) {
         log.info("Save request:{}", saveLogin);
         //za.ac.cput.domain.login newLogin;
         try {
