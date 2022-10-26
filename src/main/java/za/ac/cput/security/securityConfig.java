@@ -58,14 +58,14 @@ public class securityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers(HttpMethod.PUT, "/Student_Management-ADP3-Group14/parent/update_parent").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/parent/readParent/").hasRole("USER")
                 .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/parent/deleteParent/").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/parent/readAllParent").hasRole("USER")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/parent/readAllParents").hasRole("USER")
         
                 //School Authentication
                 .antMatchers(HttpMethod.POST, "/Student_Management-ADP3-Group14/school/save_school").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/Student_Management-ADP3-Group14/school/update_school").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readSchool/").hasRole("USER")
                 .antMatchers(HttpMethod.DELETE, "/Student_Management-ADP3-Group14/school/deleteSchool/").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readAllSchool").hasRole("USER")
+                .antMatchers(HttpMethod.GET, "/Student_Management-ADP3-Group14/school/readAllSchools").hasRole("USER")
 
                 //Login_Authentication
                 .antMatchers(HttpMethod.POST, "/Student_Management-ADP3-Group14/login/save_login").hasRole("ADMIN")
