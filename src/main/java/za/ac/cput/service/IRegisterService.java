@@ -15,6 +15,8 @@ public interface IRegisterService {
 
     register save(register register);
 
+    register update(register register);
+
     void delete(register register);
 
     void delete(String id);
